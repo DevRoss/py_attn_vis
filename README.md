@@ -1,4 +1,10 @@
-# Attention Visualizer
+# Attention Visualizer with Flask backend
+This repository is modified based on [abisee/attn_vis](https://github.com/abisee/attn_vis.git)
+
+Compared to the original version, the feature of this repository are:
+- [x] multiple lines in a datafile
+- [x] pagination
+- [x] web backend with flask
 
 This is a tool to visualize the distribution of attention in a text-based sequence-to-sequence task such as summarization. As you hover your mouse over the decoded words, the tool shows a heatmap of attention over the source words. A demo can be seen [here](http://www.abigailsee.com/2017/04/16/taming-rnns-for-better-summarization.html) (scroll down to "Example Output" section).
 
@@ -8,13 +14,13 @@ Additionally, for pointer-generator networks such as that described in [this pap
 
 To run the visualizer, run
 ```
-python -m SimpleHTTPServer
+python main.py
 ```
 from this directory then navigate to `http://localhost:8000/` in browser. The visualizer will show some example data.
 
 ## To use your own data
 
-To visualize your own data, you need to replace `attn_vis_data.json` with a similar file, either produced by this [Tensorflow code](https://github.com/abisee/pointer-generator), or by your own model. In particular `attn_vis_data.json` should contain the following fields:
+To visualize your own data, you need to replace `attn_vis_data.json` with a similar file, either produced by this [Tensorflow code](https://github.com/abisee/pointer-generator), or by your own model. In particular **each line of** `attn_vis_data.json` should contain the following fields:
 
 *  `article_lst`: the article (or source text) as a list of words
 *  `decoded_lst`: the decoded (i.e. machine-generated) summary as a list of words
