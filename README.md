@@ -10,6 +10,9 @@ This is a tool to visualize the distribution of attention in a text-based sequen
 
 Additionally, for pointer-generator networks such as that described in [this paper](https://arxiv.org/abs/1704.04368), the tool displays the _generation probability_ of each decoded word. This tool was designed to work with the [Tensorflow code](https://github.com/abisee/pointer-generator) for the paper.
 
+## Preview
+![screenshot.png](https://github.com/DevRoss/py_attn_vis/raw/master/img/screenshot.png)
+
 ## To run
 
 To run the visualizer, run

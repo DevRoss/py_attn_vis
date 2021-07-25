@@ -123,7 +123,7 @@ and available here:
       // p_gen is null for non-pointer models
       return function () {
         // Renders the article with the appropriate highlighting
-        //render_art(d3.select('#art'), gdata, dec_idx, dec_word);
+        render_art(d3.select('#art'), gdata, dec_idx, dec_word);
         // Show a tooltip giving value of p_gen
         if (p_gen != null) {
           gtooltip.text(round(p_gen, 3))
@@ -154,7 +154,7 @@ and available here:
         // Displays the data
         d3.select("#curr_datafile").html('<font color="09B509">Currently displaying: ' + 'page {{page}}' + "</font>")
         gdata = data; // store globally
-        //render_art(d3.select("#art"), gdata, null, null);
+        render_art(d3.select("#art"), gdata, null, null);
         render_abs(d3.select("#abs"), gdata);
         render_dec(d3.select("#dec"), gdata);
       }
