@@ -208,20 +208,27 @@ and available here:
     <div id="dec">
       generated summary goes here
     </div>
-    <br/>
+    <br />
     <div>
       {% if page > 1 %}
       <a href="{{page-1}}"><button class="prev">prev</button></a>
       {% endif%}
 
-      {% for pid in range(1, page_num+1) %}
-      {% if page - 10 <= pid <=page +10 and pid !=page %} <a href="{{pid}}"><button> {{pid}} </button></a>
-        {% elif pid == page %}
+      {% for pid in range(page - 10, page + 10) %}
+      {% if pid >0 and pid <= page_num and page - 10 <= pid <=page +10 and pid !=page %} <a href="{{pid}}"><button> {{pid}} </button></a>
+      {% elif pid == page %}
         <a>{{page}}</a>
         {% endif%}
         {% endfor %}
         {% if page < page_num %} <a href="{{page+1}}"><button class="next">next</button></a>
           {% endif%}
+    </div>
+    <div>
+      <form method="POST">
+        <input type="text" name="page_num" placeholder="1-{{page_num}}">
+        <input type="submit" value="find" >
+        <input type="reset" value="reset">
+      </form>
     </div>
 
   </div>

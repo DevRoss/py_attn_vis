@@ -13,8 +13,8 @@ from argparse import ArgumentParser
 from flask import Flask, jsonify, render_template, request, redirect, url_for
 import json
 
-app = Flask(__name__)  # 实例化app对象
-# app.config["JSON_AS_ASCII"] = False
+app = Flask(__name__)
+app.config["JSON_AS_ASCII"] = False
 data_path = 'attn_vis_data.json'
 
 
@@ -42,13 +42,21 @@ def index():
     return redirect(url_for('load_page', page=1))
 
 
-@app.route('/<int:page>')
+@app.route('/<int:page>', methods=['GET', 'POST'])
 def load_page(page=None):
-    json_d = json.loads(data[page - 1])
-    return render_template('index.html',
-                           data=json_d,
-                           page=page,
-                           page_num=len(data))
+    if request.method == 'GET':
+        json_d = json.loads(data[page - 1])
+        return render_template('index.html',
+                               data=json_d,
+                               page=page,
+                               page_num=len(data))
+    if request.method == 'POST':
+        page = int(request.form['page_num'])
+        json_d = json.loads(data[page - 1])
+        return render_template('index.html',
+                               data=json_d,
+                               page=page,
+                               page_num=len(data))
 
 
 if __name__ == "__main__":
