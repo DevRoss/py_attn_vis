@@ -5,6 +5,7 @@ Compared to the original version, the feature of this repository are:
 - [x] multiple lines in a datafile
 - [x] pagination
 - [x] web backend with flask
+- [x] page jumping
 
 This is a tool to visualize the distribution of attention in a text-based sequence-to-sequence task such as summarization. As you hover your mouse over the decoded words, the tool shows a heatmap of attention over the source words. A demo can be seen [here](http://www.abigailsee.com/2017/04/16/taming-rnns-for-better-summarization.html) (scroll down to "Example Output" section).
 
